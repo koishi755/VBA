@@ -1,0 +1,19 @@
+
+Private Sub Worksheet_BeforeDoubleClick(ByVal Target As Range, Cancel As Boolean)
+'ダブルクリックを無効
+Cancel = True
+
+'ダブルクリックした時の背景色を取得
+current_color = Target.Interior.Color
+
+'背景色が黄色なら以下の処理を実行
+If current_color = 65535 Then
+    current_value = Target.Value    'セルの値を取得
+    Target.Interior.Color = 5296274 'セルの背景色を黄緑に変更
+    With New MSForms.DataObject
+        .SetText current_value      '変数の値をDataObjectに格納する
+        .PutInClipboard             'DataObjectのデータをクリップボードに格納する
+    End With
+End If
+
+End Sub
