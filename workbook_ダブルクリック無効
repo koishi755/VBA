@@ -1,0 +1,7 @@
+Private Sub Workbook_BeforeClose(Cancel As Boolean)
+    Cancel = False
+End Sub
+
+Private Sub Workbook_Open()
+    Cancel = True
+End Sub
